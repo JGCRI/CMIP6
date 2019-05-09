@@ -1,2 +1,2 @@
 # cmip6
-documentation and processing code for JGCRI's CMIP6 archive on pic
+Documentation and processing code for JGCRI's CMIP6 archive on pic.
