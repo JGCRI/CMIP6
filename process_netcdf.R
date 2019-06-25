@@ -1,7 +1,7 @@
 #Import libraries necessary to run code
 library(dplyr)
 library(ncdf4)
-
+library(ggplot2)
 #Set up directory paths and constants here
 BASE        <- './'                         #Sets the working folder root
 INPUT       <- BASE                         #Sets the input file location, in this case it is same as base
@@ -38,6 +38,5 @@ for(v_years in 1:num_years)
 }
 #final calculation to reduce from yearly to one global mean value
 global_mean = sum(yearly_sum)/num_years
-
 #output = data.frame(ar)
-#write.csv(ar, file = file.path(OUTPUT, 'CMIP6_annual_global_average.csv'), row.names = FALSE)
+write.csv(yearly_sum, file = file.path(OUTPUT, 'CMIP6_annual_global_average.csv'), row.names = FALSE)

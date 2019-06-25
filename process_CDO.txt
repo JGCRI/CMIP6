@@ -1,4 +1,5 @@
-/share/apps/netcdf/4.3.2/gcc/4.4.7/bin/cdo fldmean tas_Amon_MRI-ESM2-0_ssp245_r1i1p1f1_gn_201501-210012.nc output.nc
+/share/apps/netcdf/4.3.2/gcc/4.4.7/bin/cdo fldmean tas_Amon_MRI-ESM2-0_ssp245_r1i1p1f1_gn_201501-210012.nc fldmean.nc
 
- /share/apps/netcdf/4.3.2/gcc/4.4.7/bin/cdo timmean output.nc final.nc
+/share/apps/netcdf/4.3.2/gcc/4.4.7/bin/cdo yearmean fldmean.nc finalyearmean.nc
+
 
