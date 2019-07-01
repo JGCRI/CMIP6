@@ -23,7 +23,7 @@ df = data.frame(temp)
 #file 2
 file2 = read.csv("output/CMIP6_annual_global_average.csv")
 
-ggplot() + geom_line(data=df, aes(x=c(2015:2100), temp)) + geom_line(data=file2, aes(x=c(2015:2100),x))
+ggplot() + geom_line(data=df, aes(x=c(2015:2100), temp)) + geom_point(data=file2, aes(x=c(2015:2100),x))
 
 #global_annual_avg_nc
 #graph both files

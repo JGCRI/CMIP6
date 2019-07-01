@@ -61,6 +61,20 @@ temp = ncvar_get(nc, 'tas')
 
 ar<-c(1:12)
 arc = 1
+grid_size = 320*160
+num_years = 86
+#reduce from 51200 grid cells/month to 1 value per month, to 1 value per year
+for(a in 0:num_years)
+{
+  for(b in 0:12)
+  {
+    for (c in 0:grid_size)
+    {
+      grid_to_month[b] = grid_to_month[b] + temp[c]
+    }
+    grid_to_month[b] = grid_to_month[b]/grid_size
+  }
+}
 for (j in 0:(length(temp)/12)) 
 {
   counter = j*12+1
