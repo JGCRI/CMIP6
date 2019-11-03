@@ -1,0 +1,5 @@
+# DO not git control all of the CMIP6 netcdf files. 
+archive/*
+
+# Do not git contorl the file with password info about how to download from ZTH
+download-info/ZTH/download_instructions.txt
