@@ -58,5 +58,5 @@ bind_rows(data_df,
   cmip6_index
   
 # 3. Save Index ---------------------------------------------------------------------
-write.csv(file = file.path(WRITE_TO, 'cmip6_archive_index.csv'), row.names = FALSE)
+write.csv(x = cmip6_index, file = file.path(WRITE_TO, 'cmip6_archive_index.csv'), row.names = FALSE)
   
