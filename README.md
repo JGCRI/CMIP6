@@ -10,130 +10,15 @@ All JGCRI pic users are welcome to process CMIP6 netcdfs stored on the pic archi
 
 To figure out what data and where data is stored on pic take a look at ``
 
-table class="table" style="margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:left;"> file </th>
-   <th style="text-align:left;"> type </th>
-   <th style="text-align:left;"> variable </th>
-   <th style="text-align:left;"> domain </th>
-   <th style="text-align:left;"> model </th>
-   <th style="text-align:left;"> experiment </th>
-   <th style="text-align:left;"> ensemble </th>
-   <th style="text-align:left;"> grid </th>
-   <th style="text-align:left;"> time </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> /pic/projects/GCAM/CMIP6/archive/co2s/co2s_Emon_CNRM-ESM2-1_esm-hist_r1i1p1f2_gr_185001-201412.nc </td>
-   <td style="text-align:left;"> data </td>
-   <td style="text-align:left;"> co2s </td>
-   <td style="text-align:left;"> Emon </td>
-   <td style="text-align:left;"> CNRM-ESM2-1 </td>
-   <td style="text-align:left;"> esm-hist </td>
-   <td style="text-align:left;"> r1i1p1f2 </td>
-   <td style="text-align:left;"> gr </td>
-   <td style="text-align:left;"> 185001-201412 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> /pic/projects/GCAM/CMIP6/archive/co2s/co2s_Emon_CNRM-ESM2-1_esm-piControl_r1i1p1f2_gr_185001-209912.nc </td>
-   <td style="text-align:left;"> data </td>
-   <td style="text-align:left;"> co2s </td>
-   <td style="text-align:left;"> Emon </td>
-   <td style="text-align:left;"> CNRM-ESM2-1 </td>
-   <td style="text-align:left;"> esm-piControl </td>
-   <td style="text-align:left;"> r1i1p1f2 </td>
-   <td style="text-align:left;"> gr </td>
-   <td style="text-align:left;"> 185001-209912 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> /pic/projects/GCAM/CMIP6/archive/co2s/co2s_Emon_CNRM-ESM2-1_esm-piControl_r1i1p1f2_gr_210001-234912.nc </td>
-   <td style="text-align:left;"> data </td>
-   <td style="text-align:left;"> co2s </td>
-   <td style="text-align:left;"> Emon </td>
-   <td style="text-align:left;"> CNRM-ESM2-1 </td>
-   <td style="text-align:left;"> esm-piControl </td>
-   <td style="text-align:left;"> r1i1p1f2 </td>
-   <td style="text-align:left;"> gr </td>
-   <td style="text-align:left;"> 210001-234912 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> /pic/projects/GCAM/CMIP6/archive/co2s/co2s_Emon_CNRM-ESM2-1_piControl_r1i1p1f2_gr_185001-234912.nc </td>
-   <td style="text-align:left;"> data </td>
-   <td style="text-align:left;"> co2s </td>
-   <td style="text-align:left;"> Emon </td>
-   <td style="text-align:left;"> CNRM-ESM2-1 </td>
-   <td style="text-align:left;"> piControl </td>
-   <td style="text-align:left;"> r1i1p1f2 </td>
-   <td style="text-align:left;"> gr </td>
-   <td style="text-align:left;"> 185001-234912 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> /pic/projects/GCAM/CMIP6/archive/co2s/co2s_Emon_CNRM-ESM2-1_ssp126_r1i1p1f2_gr_201501-210012.nc </td>
-   <td style="text-align:left;"> data </td>
-   <td style="text-align:left;"> co2s </td>
-   <td style="text-align:left;"> Emon </td>
-   <td style="text-align:left;"> CNRM-ESM2-1 </td>
-   <td style="text-align:left;"> ssp126 </td>
-   <td style="text-align:left;"> r1i1p1f2 </td>
-   <td style="text-align:left;"> gr </td>
-   <td style="text-align:left;"> 201501-210012 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> /pic/projects/GCAM/CMIP6/archive/co2s/co2s_Emon_CNRM-ESM2-1_ssp585_r1i1p1f2_gr_201501-210012.nc </td>
-   <td style="text-align:left;"> data </td>
-   <td style="text-align:left;"> co2s </td>
-   <td style="text-align:left;"> Emon </td>
-   <td style="text-align:left;"> CNRM-ESM2-1 </td>
-   <td style="text-align:left;"> ssp585 </td>
-   <td style="text-align:left;"> r1i1p1f2 </td>
-   <td style="text-align:left;"> gr </td>
-   <td style="text-align:left;"> 201501-210012 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> /pic/projects/GCAM/CMIP6/archive/gpp/gpp_Lmon_BCC-CSM2-MR_esm-hist_r1i1p1f1_gn_185001-201412.nc </td>
-   <td style="text-align:left;"> data </td>
-   <td style="text-align:left;"> gpp </td>
-   <td style="text-align:left;"> Lmon </td>
-   <td style="text-align:left;"> BCC-CSM2-MR </td>
-   <td style="text-align:left;"> esm-hist </td>
-   <td style="text-align:left;"> r1i1p1f1 </td>
-   <td style="text-align:left;"> gn </td>
-   <td style="text-align:left;"> 185001-201412 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> /pic/projects/GCAM/CMIP6/archive/gpp/gpp_Lmon_BCC-CSM2-MR_esm-hist_r2i1p1f1_gn_185001-201412.nc </td>
-   <td style="text-align:left;"> data </td>
-   <td style="text-align:left;"> gpp </td>
-   <td style="text-align:left;"> Lmon </td>
-   <td style="text-align:left;"> BCC-CSM2-MR </td>
-   <td style="text-align:left;"> esm-hist </td>
-   <td style="text-align:left;"> r2i1p1f1 </td>
-   <td style="text-align:left;"> gn </td>
-   <td style="text-align:left;"> 185001-201412 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> /pic/projects/GCAM/CMIP6/archive/gpp/gpp_Lmon_BCC-CSM2-MR_esm-hist_r3i1p1f1_gn_185001-201412.nc </td>
-   <td style="text-align:left;"> data </td>
-   <td style="text-align:left;"> gpp </td>
-   <td style="text-align:left;"> Lmon </td>
-   <td style="text-align:left;"> BCC-CSM2-MR </td>
-   <td style="text-align:left;"> esm-hist </td>
-   <td style="text-align:left;"> r3i1p1f1 </td>
-   <td style="text-align:left;"> gn </td>
-   <td style="text-align:left;"> 185001-201412 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> /pic/projects/GCAM/CMIP6/archive/gpp/gpp_Lmon_BCC-CSM2-MR_historical_r1i1p1f1_gn_185001-201412.nc </td>
-   <td style="text-align:left;"> data </td>
-   <td style="text-align:left;"> gpp </td>
-   <td style="text-align:left;"> Lmon </td>
-   <td style="text-align:left;"> BCC-CSM2-MR </td>
-   <td style="text-align:left;"> historical </td>
-   <td style="text-align:left;"> r1i1p1f1 </td>
-   <td style="text-align:left;"> gn </td>
-   <td style="text-align:left;"> 185001-201412 </td>
-  </tr>
-</tbody>
-</table>
+|file                                                                                                   |type |variable |domain |model       |experiment    |ensemble |grid |time          |
+|:------------------------------------------------------------------------------------------------------|:----|:--------|:------|:-----------|:-------------|:--------|:----|:-------------|
+|/pic/projects/GCAM/CMIP6/archive/co2s/co2s_Emon_CNRM-ESM2-1_esm-hist_r1i1p1f2_gr_185001-201412.nc      |data |co2s     |Emon   |CNRM-ESM2-1 |esm-hist      |r1i1p1f2 |gr   |185001-201412 |
+|/pic/projects/GCAM/CMIP6/archive/co2s/co2s_Emon_CNRM-ESM2-1_esm-piControl_r1i1p1f2_gr_185001-209912.nc |data |co2s     |Emon   |CNRM-ESM2-1 |esm-piControl |r1i1p1f2 |gr   |185001-209912 |
+|/pic/projects/GCAM/CMIP6/archive/co2s/co2s_Emon_CNRM-ESM2-1_esm-piControl_r1i1p1f2_gr_210001-234912.nc |data |co2s     |Emon   |CNRM-ESM2-1 |esm-piControl |r1i1p1f2 |gr   |210001-234912 |
+|/pic/projects/GCAM/CMIP6/archive/co2s/co2s_Emon_CNRM-ESM2-1_piControl_r1i1p1f2_gr_185001-234912.nc     |data |co2s     |Emon   |CNRM-ESM2-1 |piControl     |r1i1p1f2 |gr   |185001-234912 |
+|/pic/projects/GCAM/CMIP6/archive/co2s/co2s_Emon_CNRM-ESM2-1_ssp126_r1i1p1f2_gr_201501-210012.nc        |data |co2s     |Emon   |CNRM-ESM2-1 |ssp126        |r1i1p1f2 |gr   |201501-210012 |
+|/pic/projects/GCAM/CMIP6/archive/co2s/co2s_Emon_CNRM-ESM2-1_ssp585_r1i1p1f2_gr_201501-210012.nc        |data |co2s     |Emon   |CNRM-ESM2-1 |ssp585        |r1i1p1f2 |gr   |201501-210012 |
+|/pic/projects/GCAM/CMIP6/archive/gpp/gpp_Lmon_BCC-CSM2-MR_esm-hist_r1i1p1f1_gn_185001-201412.nc        |data |gpp      |Lmon   |BCC-CSM2-MR |esm-hist      |r1i1p1f1 |gn   |185001-201412 |
+|/pic/projects/GCAM/CMIP6/archive/gpp/gpp_Lmon_BCC-CSM2-MR_esm-hist_r2i1p1f1_gn_185001-201412.nc        |data |gpp      |Lmon   |BCC-CSM2-MR |esm-hist      |r2i1p1f1 |gn   |185001-201412 |
+|/pic/projects/GCAM/CMIP6/archive/gpp/gpp_Lmon_BCC-CSM2-MR_esm-hist_r3i1p1f1_gn_185001-201412.nc        |data |gpp      |Lmon   |BCC-CSM2-MR |esm-hist      |r3i1p1f1 |gn   |185001-201412 |
+|/pic/projects/GCAM/CMIP6/archive/gpp/gpp_Lmon_BCC-CSM2-MR_historical_r1i1p1f1_gn_185001-201412.nc      |data |gpp      |Lmon   |BCC-CSM2-MR |historical    |r1i1p1f1 |gn   |185001-201412 |
