@@ -12,3 +12,12 @@ to include files that do not already live on pic and can be subset for your choi
 a txt file that can be run with an Rsync command to download specific CMIP6 data. 
 
 3. Run the Rsync command that will download the files from a specific list. 
+
+4. Then you will need to move the files from the data transfernode to the CMIP6/archive. To do this 
+log onto constance and nativage to the /pic/dtn2/usrNNN/ and run use the following linux 
+commands to move the netcdf files from the nested dir strucutre. 
+  find ./dir/ -type f -exec mv --backup=numbered -t /save/here {} +
+Then move the files to the relevant folders in the pic archive. 
+
+5. RERUN THE INDEX SCRIPT! It is extreemly important that the index stays up to date.
+	
