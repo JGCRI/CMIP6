@@ -1,0 +1,14 @@
+In order to downlaod files from ETHZ you will need to concact Urs Beyerle, IAC/ETHZ to for a read me 
+that has the information to use Rsync commands to download data from them. You will also need to be 
+set up with an account on pic's data transfer node. In order to download the files you will have 
+to do some work on the data transfer node and on constance. 
+
+1. On the data transfer node you will need to run the Rsync command that make a list of information 
+about all of the files stored on the ETHZ computers as a txt file. This txt file will contain 
+information about the file, the path on ETHZ, and check sum information. 
+
+2. Modify and run the format_filelistTEMPLATE.R script, this R script processes the file list txt file 
+to include files that do not already live on pic and can be subset for your choice of data and returns 
+a txt file that can be run with an Rsync command to download specific CMIP6 data. 
+
+3. Run the Rsync command that will download the files from a specific list. 
