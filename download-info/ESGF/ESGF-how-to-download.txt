@@ -1,0 +1,28 @@
+ESGF-how-to.txt
+**** WORK IN PROGRESS
+This is a how to document to downlaod data from ESGF to the pic CMIP6 archive. 
+
+You will need an account on pic's data transfer node and account with https://esgf-node.llnl.gov/projects/esgf-llnl/
+you will need to keep track of your OpenId because it is needed to log into the account not your user name 
+and to download the netcdfs directly to the data transfer node (dtn2).
+
+1. You are going to create a shell script to run on the dtn2 from the ESGF website. Do this by adding all of the 
+files of interest to your data cart. When you go to check out create a wget script, show all replicas and download 
+all of the wget scripts listed (each mirror may contain different data). To filter for specific variables use the 
+search box, note that the search box does not like variables that have a capital letter of a number in it. The shell scripts will be downloaded onto your local machine.
+
+2. This step is optional but highly encouraged. Modify the shell scripts using the python script (ADD MORE DETAIL ABOUT THE PYTHON SCRIPT) to make sure that the shell script(s) only contain the data we are interested in downloading. 
+
+3. Save the modified shell scripts on the data transfer node. I like to do this by copying and pasting the shell script into a blank file created by nano but you could also use scp. 
+
+4. Launch a wget.sh 
+
+sh wget.sh -H -i
+
+The -H and -i are important I had to work with people from ESGF to figure out that these are for some reason required to successfully launch the shell scripts on the data transfer node. Then you will be prompted to enter your OpenID and ESGF password. 
+
+After one shell script completes I recommend running multiple ones in a row, for some reason if the different shell scripts are trying to download a file it will recognize that the netcdf file lives at the root directory relative to where the shell script lives and will move onto the next file to download. However if the files have been moved the next wget.sh will treat every file as being new. 
+
+5. Move the netcdf files to the relevant place on pic. 
+
+6. Update the archive index by rerunning the index script and push to GitHub. 
