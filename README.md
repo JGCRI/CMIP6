@@ -36,3 +36,6 @@ To figure out what data and where data is stored on pic take a look at `cmip6_ar
 
 If you are intrested in data that is not included in the index then it is also not downlaoded on pic. Please open a GitHub issue describing your data needs (model / experiment / variable and so on) and an ideal timeline. That way we can coordinate the data download and keep track of changes the the archive. 
 
+
+## See Wiki for additional information
+
