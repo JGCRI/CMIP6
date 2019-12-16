@@ -67,15 +67,15 @@ list.files(CMIP6_ARCHIVE, 'cmip6_archive_index.csv', full.names = TRUE) %>%
 # 3. CUSTOM PORTION  -------------------------------------------------------------
 # ## Combine the file list data frame with the cmip6 arcvie data frame. And subset the 
 # ## resulting data frame for the entries that do not exist on pic. 
-# data_df %>%
-#   left_join(cmip6_index) %>% 
-#   filter(is.na(file)) %>%  
-#   # Now we can filter the data frame for the files we would like to downlaod from ZTH. 
-#   #filter(select the sort of variables / models / domains / experiments we are interested in) %>%  
-#   select(path, nc) %>% 
-#   mutate(file = paste0(path, '/', nc)) %>% 
-#   pull(file) -> 
-#   to_download
+data_df %>%
+  left_join(cmip6_index) %>%
+  filter(is.na(file)) %>%
+  # Add a filter statement here to determine what files are to be downloaded. 
+  # filter( for some model / domain / variable and so on)
+  select(path, nc) %>%
+  mutate(file = paste0(path, '/', nc)) %>%
+  pull(file) ->
+  to_download
   
 
 # 4. Save to download list  -------------------------------------------------------------

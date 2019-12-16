@@ -1,5 +1,13 @@
 # DO not git control all of the CMIP6 netcdf files. 
 archive/*
+*.DS_Store
+*.Rproj
+*.Rhistory
+.Rproj.user
 
 # Do not git contorl the file with password info about how to download from ZTH
-download-info/ZTH/download_instructions.txt
+download-info/ETHZ/my_download_info.txt
+download-info/ESGF/my-ESGF-how-to.txt
+
+# Protect the template file from being over written 
+download-info/ETHZ/format_filelistTEMPLATE.R
