@@ -13,7 +13,7 @@ To figure out what data and where data is stored on pic take a look at `cmip6_ar
 `cmip6_archive_index` column description
 * file: as string of the full CMIP6 netcdf file name 
 * type: a string set euqal to data or fx to indicate if the netcdf file is CMIP model output data or CMIP model meta data information. 
-* variable: a string indicating the CMIP6 variable name, (download the CMIP6 excel work book about data from http://proj.badc.rl.ac.uk/svn/exarch/CMIP6dreq/tags/latest/dreqPy/docs/CMIP6_MIP_tables.xlsx)
+* variable: a string indicating the CMIP6 variable name, (download the [CMIP6 excel work book](http://proj.badc.rl.ac.uk/svn/exarch/CMIP6dreq/tags/latest/dreqPy/docs/CMIP6_MIP_tables.xlsx) containing information about the MIP variable names)
 * domain: a string indicating the CMIP6 modeling domain (TODO break out information about the frequency of the data from domain name)
 * model: a string indicating the CMIP6 model group.
 * experiment: as string indicating the CMIP6 experiment name. 
