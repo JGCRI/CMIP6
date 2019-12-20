@@ -13,7 +13,7 @@ To figure out what data and where data is stored on pic take a look at `cmip6_ar
 `cmip6_archive_index` column description
 * file: as string of the full CMIP6 netcdf file name 
 * type: a string set euqal to data or fx to indicate if the netcdf file is CMIP model output data or CMIP model meta data information. 
-* variable: a string indicating the CMIP6 variable name, (TODO find the link to the CMIP6_MIP_tables_variable_names.xlsx)
+* variable: a string indicating the CMIP6 variable name, (download the [CMIP6 excel work book](http://proj.badc.rl.ac.uk/svn/exarch/CMIP6dreq/tags/latest/dreqPy/docs/CMIP6_MIP_tables.xlsx) containing information about the MIP variable names)
 * domain: a string indicating the CMIP6 modeling domain (TODO break out information about the frequency of the data from domain name)
 * model: a string indicating the CMIP6 model group.
 * experiment: as string indicating the CMIP6 experiment name. 
@@ -35,4 +35,7 @@ To figure out what data and where data is stored on pic take a look at `cmip6_ar
 # Requesting Data
 
 If you are intrested in data that is not included in the index then it is also not downlaoded on pic. Please open a GitHub issue describing your data needs (model / experiment / variable and so on) and an ideal timeline. That way we can coordinate the data download and keep track of changes the the archive. 
+
+
+## See Wiki for additional information
 
