@@ -71,7 +71,7 @@ data_df %>%
   
 # Now figure out what data types have already been partically downloaded. 
 cmip6_index %>% 
-  select(variable, model, experiment) %>% 
+  select(variable, experiment) %>% 
   distinct %>% 
   mutate(missing = TRUE) -> 
   incomplete_data_sets
