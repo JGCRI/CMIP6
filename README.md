@@ -18,7 +18,7 @@ To figure out what data and where data is stored on pic take a look at `cmip6_ar
 * model: a string indicating the CMIP6 model group.
 * experiment: as string indicating the CMIP6 experiment name. 
 * ensemble: a string of the ensemble variant.
-* grid: a string of the grid information (TODO check CMIP6 documenation for more information about the grid)
+* grid: a string of the grid information [CMIP6 grid descriptions](https://www.earthsystemcog.org/site_media/projects/wip/CMIP6_global_attributes_filenames_CVs_v6.2.6.pdf) `gn` is the native model grid, `gr` means the model grid has been regirdded, and `gm` refers to a global mean.
 * time: a string describing the start and end date of the output netcdf, some modeling groups break output files for a single experiment into mulitple netcdf files by time. 
 
 
