@@ -81,6 +81,25 @@ not_downloaded %>%
   filter(missing == TRUE)  -> 
   to_download 
 
+
+## Because there are too many files to download we are only going to start 
+## being more specific with the data files that are reguarly updated untill 
+## asked for by a spcific user. 
+to_download %>% 
+  # Do not downlaod the global values 
+  filter(!grid == 'gm') %>% 
+  # Do not downloa the hourly data 
+  filter(!grepl(pattern = 'hr', x = tolower(domain))) %>% 
+  # Do not download the daily ocean data 
+  filter(!domain == 'Oday') %>% 
+  mutate(keep = FALSE) %>%
+  mutate(keep = if_else(domain %in% c('Lmon', 'Emon', 'Omon'), TRUE, keep)) %>%  
+  mutate(keep = if_else(variable %in% c('hfls', 'hfss', 'pr', 'tas', 'rlds', 'rlus', 'rsds', 'rsus') &
+                          domain == 'Amon', TRUE, keep)) %>% 
+  mutate(keep = if_else(variable %in% c('tasmax', 'tasmin', 'pr') & domain == 'day', TRUE, keep)) %>% 
+  filter(keep) -> 
+  to_download
+
 # Save a copy of information about the new data. 
 write.csv(x = to_download, file = file.path(DTN2_DIR, 'new_data.csv'), row.names = FALSE)
 
