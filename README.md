@@ -10,6 +10,11 @@ All JGCRI pic users are welcome to process CMIP6 netcdfs stored on the pic archi
 
 To figure out what data and where data is stored on pic take a look at `cmip6_archive_index.csv` it contains a CMIP6 information in a table that is easy to subset and filter. 
 
+There are several different ways to access the `cmip6_archive_index` 
+ * Download the `cmip6_archive_index.csv` and open with excel or import into R/python/ect.
+ * Anywhere you used R (local or on pic) run `archive <- readr::read_csv(url("https://raw.githubusercontent.com/JGCRI/CMIP6/master/cmip6_archive_index.csv"))` to import directly from github into R
+
+
 `cmip6_archive_index` column description
 * file: as string of the full CMIP6 netcdf file name 
 * type: a string set euqal to data or fx to indicate if the netcdf file is CMIP model output data or CMIP model meta data information. 
