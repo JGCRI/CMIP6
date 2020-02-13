@@ -11,17 +11,37 @@ information about the file, the path on ETHZ, and check sum information.
 to include files that do not already live on pic and can be subset for your choice of data and returns 
 a txt file that can be run with an Rsync command to download specific CMIP6 data. 
 
-3. Run the Rsync command that will download the files from a specific list. 
-  Rsync command 2>&1 > wget.log < /dev/null &
+3. Run a bash script on a dtn2 detached screen that looks something like... 
+
+	##!/bin/bash/
+	#
+	## Make the to_download.txt file into an argument as a possible enhancment
+	## THE RSYNC COMMAND TO DOWNLOAD FILES LISTED IN to_download.txt
+	#
+	# echo "Moving downloaded netcdfs to ./to_move"
+	## Move all of the files from the cmip6 directory to the to_move direcotry
+	# find ./cmip6/ -type f -exec mv --backup=numbered -t ./to_move {} +
+	#
+	## As a means of quilaity controls before transfering to the CMIP6 archive check to make sure that the netcdf is not
+	## empty.
+	# echo "Netdcf quiality control"
+	# find ./to_move -empty -type f -delete
+	# find ./to_move -name '*.nc.~*~' -delete
+	# rm -r ./cmip6
+	#
+	# echo "files to archive " ls ./to_move -1 | wc -l
+	#	
+	# echo "done."
+
   
 4. Then you will need to move the files from the data transfernode to the CMIP6/archive. To do this 
 log onto constance and nativage to the /pic/dtn2/usrNNN/ and run use the following linux 
 commands to move the netcdf files from the nested dir strucutre. 
-  find ./dir/ -type f -exec mv --backup=numbered -t /save/here {} +
+  find ./cmip6/ -type f -exec mv --backup=numbered -t . {} +
 Then move the files to the relevant folders in the pic archive. 
 
-Helpful hint to check to see if all the netcdf files have been mnoved out of the sub dir run the following command. 
-  find . -name "*.nc" -printf '.' | wc -l
+Helpful hint to check to see if all the netcdf files have been moved out of the sub dir run the following command. 
+  find ./cmip6/ -name "*.nc" -printf '.' | wc -l
 
 5. RERUN THE INDEX SCRIPT! It is extreemly important that the index stays up to date.
 	

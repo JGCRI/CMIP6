@@ -1,9 +1,0 @@
-THIS IS FILE IS NOT COMMITED TO GITHUB BECAUSE WE WERE ASKED NOT TO DISTIBUTE THE ZTH INFO.
-
- ETH and maintains the archives of CMIP data which is very nice to work with, it is well orgnaized easy to download and is quality controled.
-In order to download the files on to pic you will have to download the intrusction files using Rsync on the data transfer node. 
-
-RSYNC_PASSWORD=atyourownrisk rsync -vrlpt cmip6user@atmos.ethz.ch::cmip6/README-rsync.txt .
-RSYNC_PASSWORD=atyourownrisk rsync -vrlpt cmip6user@atmos.ethz.ch::cmip6/README.txt .
-
-
