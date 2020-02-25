@@ -28,11 +28,13 @@ hr_data_pattern    <- '([a-zA-Z0-9-]+)_([a-zA-Z0-9-]+)_([a-zA-Z0-9-]+)_([a-zA-Z0
 subHr_data_pattern <- '([a-zA-Z0-9-]+)_([a-zA-Z0-9-]+)_([a-zA-Z0-9-]+)_([a-zA-Z0-9-]+)_([a-zA-Z0-9-]+)_([a-zA-Z0-9-]+)_([0-9]{14})-([0-9]{14}).nc'
 data_pattern <- paste(month_data_pattern, day_data_pattern, hr_data_pattern, subHr_data_pattern, sep = '|')
 fx_pattern   <- '([a-zA-Z0-9-]+)_fx_([a-zA-Z0-9-]+)_([a-zA-Z0-9-]+)_([a-zA-Z0-9-]+)_([a-zA-Z0-9-]+).nc'
+Ofx_pattern  <- '([a-zA-Z0-9-]+)_Ofx_([a-zA-Z0-9-]+)_([a-zA-Z0-9-]+)_([a-zA-Z0-9-]+)_([a-zA-Z0-9-]+).nc'
 
 # Cateforize the netcdfs. 
 tibble(file = file) %>%  
   mutate(type = if_else(grepl(pattern = data_pattern, x = file), 'data', 'NA')) %>%  
-  mutate(type = if_else(grepl(pattern = fx_pattern, x = file), 'fx', type)) -> 
+  mutate(type = if_else(grepl(pattern = fx_pattern , x = file), 'fx', type)) %>% 
+  mutate(type = if_else(grepl(pattern = Ofx_pattern , x = file), 'fx', type)) -> 
   categorized_data 
   
 # Make sure that ever file has been categorized as a type. 
@@ -56,7 +58,35 @@ categorized_data %>%
 bind_rows(data_df, 
           fx_df) -> 
   cmip6_index
+
+# 3. Checks and Correct ---------------------------------------------------------------------
+# Final checks before saving. Somethings I've noticed is that there can be errors with the way that the modeling groups 
+# saved the netcdf files. These will need to be correcte before saving. 
+cmip6_experiments <- c("esm-hist", "esm-piControl", "piControl", "ssp126",         
+                       "ssp585", "historical", "1pctCO2", "ssp245", 
+                       "ssp370", "ssp119", "ssp434", "ssp460", 
+                       "ssp534-over", "abrupt-4xCO2", "abrupt-2xCO2", "abrupt-0p5xCO2", 
+                       "esm-ssp585", "ssp126-ssp370Lu", "ssp370-lowNTCF", "ssp245-GHG", 
+                       "hist-aer", "hist-GHG", "hist-nat", "hist-sol", "hist-volc", "piClim-4xCO2", "piClim-aer", 
+                       "piClim-anthro", "piClim-control", "piClim-ghg", "land-hist")
+
+# Save the entries that have correct cmip6 experiment names. 
+good_experiments <- which(cmip6_index$experiment %in% cmip6_experiments)
+
+# Are there any non cmip6 experiments? If so correct them here. So far the only error we have seen 
+# a set of NORESM files that flipped the order of experiment and model in netcdf file name. 
+to_correct <- cmip6_index[!cmip6_index$experiment %in% cmip6_experiments, ]
+names(to_correct) <- c("file", "type", "variable", "domain", "experiment", "model", 
+                       "ensemble", "grid", "time")
   
-# 3. Save Index ---------------------------------------------------------------------
+cmip6_index[good_experiments, ] %>% 
+  bind_rows(to_correct) -> 
+  cmip6_index
+  
+assertthat::assert_that(all(cmip6_index$experiment %in% cmip6_experiments), msg = 'Unexpected CMIP experiment name.')
+
+
+# 4. Save Index ---------------------------------------------------------------------
 write.csv(x = cmip6_index, file = file.path(WRITE_TO, 'cmip6_archive_index.csv'), row.names = FALSE)
   
+
