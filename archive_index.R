@@ -70,20 +70,24 @@ cmip6_experiments <- c("esm-hist", "esm-piControl", "piControl", "ssp126",
                        "hist-aer", "hist-GHG", "hist-nat", "hist-sol", "hist-volc", "piClim-4xCO2", "piClim-aer", 
                        "piClim-anthro", "piClim-control", "piClim-ghg", "land-hist")
 
-# Save the entries that have correct cmip6 experiment names. 
-good_experiments <- which(cmip6_index$experiment %in% cmip6_experiments)
-
-# Are there any non cmip6 experiments? If so correct them here. So far the only error we have seen 
-# a set of NORESM files that flipped the order of experiment and model in netcdf file name. 
-to_correct <- cmip6_index[!cmip6_index$experiment %in% cmip6_experiments, ]
-names(to_correct) <- c("file", "type", "variable", "domain", "experiment", "model", 
-                       "ensemble", "grid", "time")
-  
-cmip6_index[good_experiments, ] %>% 
-  bind_rows(to_correct) -> 
-  cmip6_index
-  
 assertthat::assert_that(all(cmip6_index$experiment %in% cmip6_experiments), msg = 'Unexpected CMIP experiment name.')
+
+# The other important thing to check for is to make sure that there are no duplicates in the archive. 
+duplicates <- duplicated(cmip6_index[ , names(cmip6_index) != 'file'])
+
+assertthat::assert_that(!any(duplicates), msg = 'There are duplicates in the cmip6 archive!')
+
+if(any(duplicates)){
+  
+  duplicated_info <- cmip6_index[duplicates, names(cmip6_index) != 'file']
+  
+  cmip6_index %>% 
+    inner_join(duplicated_info) %>%  
+    arrange(type, variable, domain, model, experiment, ensemble, grid, time) -> 
+    problem_files 
+}
+
+
 
 
 # 4. Save Index ---------------------------------------------------------------------
