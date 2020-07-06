@@ -1,5 +1,5 @@
 # Objective
-This is the repository for JGCRI's CMIP6 archive that is stored under `/pic/projects/GCAM` on pic. The purpose of this repository is to document and organize the CMIP6 netcdfs used at the Institute and to minimize duplicative efforts to download the data. 
+This is the repository for JGCRI's CMIP6 archive that is stored under `/pic/projects/GCAM/CMIP6` on pic. The purpose of this repository is to document and organize the CMIP6 netcdfs used at the Institute and to minimize duplicative efforts to download the data. 
 
 All JGCRI pic users are welcome to process CMIP6 netcdfs stored on the pic archive however we ask that you do not modify the netcdf files or save any of your work here because these netcdf files are shared Institute resources. 
 
